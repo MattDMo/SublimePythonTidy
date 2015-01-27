@@ -26,12 +26,12 @@ def setup():
         config.to_pythontidy_namespace()
 
 
-class python_tidy(TextCommand):
+class PythonTidyCommand(TextCommand):
 
     def run(self, edit):
         setup()
         view = self.view
-        region = Region(0L, view.size())
+        region = Region(0, view.size())
         encoding = view.encoding()
         if not encoding or encoding == u'Undefined':
             encoding = view.settings().get('default_encoding')
