@@ -2,9 +2,13 @@ from sublime_plugin import TextCommand
 from sublime import Region
 from subprocess import call
 from os.path import abspath, expanduser, exists, join
-from StringIO import StringIO
 from sys import path
-
+try:
+    # ST2/Python 2.6
+    from StringIO import StringIO
+except ImportError:
+    # ST3/Python 3.3
+    from io import StringIO
 
 # load the git submodule
 extra = abspath('PythonTidy')
